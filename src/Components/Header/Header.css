@@ -1,0 +1,22 @@
+.HeaderSection {
+    text-align: center;
+}
+.HeaderNav {
+    background: black;
+    line-height: 40px;
+    font-size: 20px;
+}
+.HeaderNav a {
+    text-decoration: none;
+    color: white;
+    margin-right: 20px;
+    padding: 5px;
+}
+
+.HeaderNav a:hover {
+    background: bisque;
+    color: black;
+}
+.HeaderImageSection img {
+    height: 80px;
+}

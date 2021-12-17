@@ -1,0 +1,8 @@
+.fullShop {
+    display: flex;
+}
+.productArea {
+    width: 70%;
+    margin-left: 5px;
+    border-right: 2px solid lightgray;
+}
