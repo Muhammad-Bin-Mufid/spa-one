@@ -1,5 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Shop.css';
+import Product from "../Product/Product";
+import Cart from "../Cart/Cart";
+import {addToDb} from "../../utilities/fakedb";
 let fakeData = [
     {
         "key": "B002RL8IYK",
@@ -2177,21 +2180,29 @@ let fakeData = [
         "price": 49.99,
         "shipping": 7.99
     }
-]
+];
 const Shop = () => {
     let first10 = fakeData.slice(0,10);
+    let [cart, setCart] = useState([])
+    let buttonHandler = (clickedProduct) => {
+
+        let newCart = [...cart, clickedProduct]
+        setCart(newCart);
+        addToDb(clickedProduct.key)
+    }
     return (
       <section className="fullShop">
           <section className="productArea">
               <h1>Available Products = {first10.length}</h1>
               <div>
                   {
-                      first10.map(pd => <li>{pd.name}</li>)
+                      first10.map(pd => <Product product={pd} buttonHandler={buttonHandler} showAddToCart={true}/>)
                   }
               </div>
           </section>
           <section className="cartArea">
               <h2><u>This is a cart...</u></h2>
+              <Cart cart={cart}/>
           </section>
 
       </section>
